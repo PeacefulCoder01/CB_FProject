@@ -1,4 +1,6 @@
 import xgboost as xgb
+from xgboost import plot_importance
+from matplotlib import pyplot as plt
 from sklearn import metrics
 from utilities.general_helpers import *
 import pandas as pd
@@ -58,6 +60,8 @@ class Enhanced_XGboost:
         self.model_layers = []
         self.patient_prediction_threshold = None
         self.cells_presictions_threshold = None
+        self.feature_importance = []
+        self.most_important_5 = None
 
     def train(self, rna_seq_dataset, verbose=False):
         """
@@ -92,6 +96,14 @@ class Enhanced_XGboost:
             patients_labels, patients_predictions_probs, _ = patients_average_cells_predictions(val_set, val_cells_preds)
             best_threshold_patient_probs = pick_best_threshold(labels=patients_labels,
                                                             predictions_probs=patients_predictions_probs)
+
+            # Save the feature importance data by 'gain'
+            features_importance = bst.get_score(importance_type='gain')
+            self.feature_importance.append(features_importance)
+            print("top 5 features are:", dict(Counter(self.feature_importance[idx]).most_common(5)))
+
+            for k, v in dict(Counter(self.feature_importance[idx]).most_common(5)).items():
+                print("The score of '{}' is {}".format(rna_seq_dataset.gene_names[int(k[1:])], features_importance[k]))
 
             # Adds layer (XGBoost) to the model.
             self.model_layers.append((bst, best_threshold_cell_probs, best_threshold_patient_probs))
@@ -151,6 +163,14 @@ class Enhanced_XGboost:
         :param filename: name of the new file'll be created.
         """
         pickle.dump(self, open(os.path.join(path, filename), "wb"))
+
+    def get_feature_importance(self):
+        features = {}
+        for feature in self.feature_importance[0].keys():
+            if feature in self.feature_importance[0] and feature in self.feature_importance[1] and feature in self.feature_importance[2] and feature in self.feature_importance[3] and feature in self.feature_importance[4]:
+                features[feature] = float(sum(d[feature] for d in self.feature_importance)) / len(self.feature_importance)
+
+        return dict(Counter(features).most_common(5))
 
 
 

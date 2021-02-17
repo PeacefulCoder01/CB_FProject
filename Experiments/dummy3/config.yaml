@@ -1,0 +1,22 @@
+EXPERIMENT:
+  experiment_name: dummy3 # 18.10.20_e4_0.9
+  experiments_folder: ..\Experiments
+  save_model: yes # if is 'yes' model'll be saved in experiment folder.
+DATASET:
+#  data_path: D:\Technion studies\Keren Laboratory\Data\smart_seq\SmartSeq_RNAseq_DATA.p
+  data_path: C:\Users\User\OneDrive - Technion\semester 1\Bioinformatics Of Cancer\Exercises\Final Project\Data\SmartSeq_RNAseq_DATA.p
+  split_data_path: #D:\Technion studies\Keren Laboratory\python_playground\outputs\smart_seq\patient_divisions\all_test0.3_ver2.p #C:\Users\itay\Desktop\Technion studies\Keren Laboratory\python_playground\classifying-response-to-immunotherapy\Data\patients_divisions\train_patients_0.9percent_all.p # path of division of patients to train/test datasets. leave blank if you want to do a new division
+  save_division_path: # D:\Technion studies\Keren Laboratory\python_playground\outputs\smart_seq\patient_divisions\all_test0.3_ver2.p # for saving the division of patients. only when split_data_path mode is off (building new data sets). leave blank if you don't want to save.
+  test_percent: 0.3 # in case of new division
+  supervised_classification: # specify the cell-types names you're interested in.
+   # - T cells
+  clustering:
+    clustering_name: # enter a clustering name only if you want to filter cells by that clustering. there are 3 clustering: t_cell_6_cluster, t_cell_2_cluster, general_11_cluster
+    clusters_indices: # specify the cluster indices you're interested in.
+     # - 1
+  variance: 6  # filter genes by variance, 0 - for none
+  patients_type: ALL # ALL/pre/post
+XGBOOST:
+  k_folds: 5 # num of folds for k folds
+  num_round: 10
+  early_stopping_rounds: 10

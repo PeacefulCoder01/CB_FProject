@@ -1,0 +1,155 @@
+Dataset was cleared from genes with variance of less than 6
+Taking exited data division from /storage/md_keren/shitay/Data/smart_seq/patients_divisions/all_test0.3_ver1.p
+Train dataset patients: ['Pre_P27', 'Post_P20', 'Pre_P33', 'Post_P5_2', 'Pre_P6', 'Pre_P8', 'Pre_P28', 'Post_P7', 'Pre_P15', 'Post_P28', 'Post_P12', 'Post_P23', 'Pre_P29', 'Post_P3', 'Pre_P2', 'Pre_P4', 'Post_P28_2', 'Post_P6', 'Post_P30', 'Post_P11', 'Post_P18', 'Pre_P31', 'Pre_P24', 'Post_P23_2', 'Post_P8', 'Pre_P7', 'Post_P13', 'Post_P14', 'Pre_P3', 'Post_P19', 'Pre_P1', 'Pre_P25']
+Test dataset patients: ['Pre_P27', 'Post_P20', 'Pre_P33', 'Post_P5_2', 'Pre_P6', 'Pre_P8', 'Pre_P28', 'Post_P7', 'Pre_P15', 'Post_P28', 'Post_P12', 'Post_P23', 'Pre_P29', 'Post_P3', 'Pre_P2', 'Pre_P4', 'Post_P28_2', 'Post_P6', 'Post_P30', 'Post_P11', 'Post_P18', 'Pre_P31', 'Pre_P24', 'Post_P23_2', 'Post_P8', 'Pre_P7', 'Post_P13', 'Post_P14', 'Pre_P3', 'Post_P19', 'Pre_P1', 'Pre_P25']
+Train XGBoost on fold number 1|5
+[0]	train-auc:0.98169	validation-auc:0.64729
+[1]	train-auc:0.99942	validation-auc:0.62152
+[2]	train-auc:1.00000	validation-auc:0.64000
+[3]	train-auc:1.00000	validation-auc:0.65204
+[4]	train-auc:1.00000	validation-auc:0.64420
+[5]	train-auc:1.00000	validation-auc:0.64914
+[6]	train-auc:1.00000	validation-auc:0.66256
+[7]	train-auc:1.00000	validation-auc:0.66406
+[8]	train-auc:1.00000	validation-auc:0.65951
+[9]	train-auc:1.00000	validation-auc:0.65976
+
+
+
+###########################################
+Train XGBoost on fold number 2|5
+[0]	train-auc:0.98790	validation-auc:0.44251
+[1]	train-auc:0.99953	validation-auc:0.50814
+[2]	train-auc:1.00000	validation-auc:0.55171
+[3]	train-auc:1.00000	validation-auc:0.50471
+[4]	train-auc:1.00000	validation-auc:0.53897
+[5]	train-auc:1.00000	validation-auc:0.53825
+[6]	train-auc:1.00000	validation-auc:0.49531
+[7]	train-auc:1.00000	validation-auc:0.49904
+[8]	train-auc:1.00000	validation-auc:0.50685
+[9]	train-auc:1.00000	validation-auc:0.50291
+
+
+
+###########################################
+Train XGBoost on fold number 3|5
+[0]	train-auc:0.96917	validation-auc:0.64407
+[1]	train-auc:0.99921	validation-auc:0.66158
+[2]	train-auc:1.00000	validation-auc:0.65767
+[3]	train-auc:1.00000	validation-auc:0.65471
+[4]	train-auc:1.00000	validation-auc:0.66127
+[5]	train-auc:1.00000	validation-auc:0.65709
+[6]	train-auc:1.00000	validation-auc:0.67214
+[7]	train-auc:1.00000	validation-auc:0.67814
+[8]	train-auc:1.00000	validation-auc:0.67909
+[9]	train-auc:1.00000	validation-auc:0.68032
+
+
+
+###########################################
+Train XGBoost on fold number 4|5
+[0]	train-auc:0.99010	validation-auc:0.65302
+[1]	train-auc:0.99986	validation-auc:0.64387
+[2]	train-auc:1.00000	validation-auc:0.66591
+[3]	train-auc:1.00000	validation-auc:0.66295
+[4]	train-auc:1.00000	validation-auc:0.66664
+[5]	train-auc:1.00000	validation-auc:0.66386
+[6]	train-auc:1.00000	validation-auc:0.66791
+[7]	train-auc:1.00000	validation-auc:0.66586
+[8]	train-auc:1.00000	validation-auc:0.66755
+[9]	train-auc:1.00000	validation-auc:0.66964
+
+
+
+###########################################
+Train XGBoost on fold number 5|5
+[0]	train-auc:0.98590	validation-auc:0.56060
+[1]	train-auc:0.99954	validation-auc:0.58296
+[2]	train-auc:1.00000	validation-auc:0.59635
+[3]	train-auc:1.00000	validation-auc:0.57313
+[4]	train-auc:1.00000	validation-auc:0.57472
+[5]	train-auc:1.00000	validation-auc:0.57481
+[6]	train-auc:1.00000	validation-auc:0.57143
+[7]	train-auc:1.00000	validation-auc:0.57131
+[8]	train-auc:1.00000	validation-auc:0.56614
+[9]	train-auc:1.00000	validation-auc:0.56897
+
+
+
+###########################################
+----------------------------------------------
+Train inference
+            labels  final predictions  predictions XGBoost votes
+patients                                                        
+Post_P11       0.0                  0                        0.0
+Post_P12       0.0                  0                        0.0
+Post_P13       0.0                  0                        0.2
+Post_P14       0.0                  0                        0.2
+Post_P18       0.0                  0                        0.2
+Post_P19       1.0                  1                        1.0
+Post_P20       0.0                  0                        0.0
+Post_P23       0.0                  0                        0.0
+Post_P23_2     0.0                  0                        0.0
+Post_P28       0.0                  0                        0.0
+Post_P28_2     0.0                  0                        0.0
+Post_P3        0.0                  0                        0.2
+Post_P30       0.0                  0                        0.0
+Post_P5_2      1.0                  1                        1.0
+Post_P6        0.0                  0                        0.0
+Post_P7        1.0                  1                        1.0
+Post_P8        1.0                  1                        1.0
+Pre_P1         1.0                  1                        1.0
+Pre_P15        0.0                  0                        0.0
+Pre_P2         0.0                  0                        0.2
+Pre_P24        1.0                  1                        1.0
+Pre_P25        0.0                  0                        0.2
+Pre_P27        0.0                  0                        0.0
+Pre_P28        1.0                  1                        1.0
+Pre_P29        1.0                  1                        1.0
+Pre_P3         0.0                  0                        0.2
+Pre_P31        0.0                  0                        0.0
+Pre_P33        1.0                  1                        1.0
+Pre_P4         0.0                  0                        0.0
+Pre_P6         0.0                  0                        0.0
+Pre_P7         1.0                  1                        1.0
+Pre_P8         1.0                  1                        1.0
+Train cells predictions CM:
+[[3887  124]
+ [   0 1629]]
+Train patients predictions CM:
+[[21  0]
+ [ 0 11]]
+Train cells classification accuracy:
+0.978
+Train patients classification accuracy:
+1.0
+----------------------------------------------
+Test inference
+           labels  final predictions  predictions XGBoost votes
+patients                                                       
+Post_P1       1.0                  1                        0.8
+Post_P10      0.0                  0                        0.2
+Post_P15      0.0                  0                        0.0
+Post_P16      0.0                  0                        0.0
+Post_P17      1.0                  1                        0.8
+Post_P1_2     0.0                  0                        0.2
+Post_P2       0.0                  0                        0.0
+Post_P21      1.0                  1                        0.8
+Post_P22      0.0                  0                        0.2
+Post_P3_2     0.0                  1                        0.6
+Post_P4       1.0                  1                        1.0
+Post_P5       0.0                  1                        0.8
+Pre_P12       0.0                  0                        0.4
+Pre_P20       0.0                  0                        0.0
+Pre_P26       1.0                  1                        1.0
+Pre_P35       1.0                  1                        1.0
+Test cells predictions CM:
+[[ 835 1112]
+ [  89  539]]
+Test patients predictions CM:
+[[8 2]
+ [0 6]]
+Test cells classification accuracy:
+0.534
+Test patients classification accuracy:
+0.875

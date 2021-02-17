@@ -16,7 +16,7 @@ from utilities.general_helpers import *
 # CONFIG_PATH = r'/srv01/technion/shitay/Code/classifying_response_to_immunotherapy/cfg/server_cfg.yaml'
 # CONFIG_PATH = r'cfg/server_cfg.yaml'
 # CONFIG_PATH = r'cfg\factory_cfg\variance_2_test_percent0.30000000000000004_patients_post_cfg.yaml'
-CONFIG_PATH = r'cfg\xgboost_1_cfg.yaml'
+# CONFIG_PATH = r'cfg\xgboost_1_cfg.yaml'
 CONFIG_PATH = r'..\cfg\dummy.yaml'
 # CONFIG_PATH = sys.argv[1] if len(sys.argv)>1 else r'cfg\xgboost_1_cfg.yaml' # for terminal with outer config operation
 
@@ -84,6 +84,7 @@ def main(dataset_config, xgboost_config, experiment_config):
     # Trains.
     model.train(train_dataset, True)
 
+
     # Inferences on train set.
     print("----------------------------------------------")
     print("Train inference")
@@ -116,6 +117,17 @@ def main(dataset_config, xgboost_config, experiment_config):
     print(f'Test patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference test set patients, accuracy: {patients_acc}", join(experiment_path, f"CM test patients {patients_acc}"))}')
     print(f'Test cells classification accuracy:\n{cells_acc}')
     print(f'Test patients classification accuracy:\n{patients_acc}')
+
+
+    # Feature importance
+    print("----------------------------------------------")
+    print("Feature Importance")
+    model.most_important_5 = model.get_feature_importance()
+    for k, v in model.most_important_5.items():
+        print("The score of '{}' is {}".format(train_dataset.gene_names[int(k[1:])], model.most_important_5[k]))
+    print(model.most_important_5)
+
+
     # Save model.
     if experiment_config['save_model']:
         model.save_model_in_pkl(os.path.join(experiment_config['experiments_folder'], experiment_config['experiment_name']))

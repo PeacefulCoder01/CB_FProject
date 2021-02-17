@@ -1,0 +1,16 @@
+EXPERIMENT:
+  experiment_name: exp2xgboost_tcells_2_14.9
+  experiments_folder: Experiments
+  save_model: yes # if is 'yes' model'll be saved in experiment folder.
+DATASET:
+  data_path: DATA\RNAseq_DATA.p
+  split_data_path: DATA\patients_divisions\train_patients_0.9percent_all.p # (reproduce datasets) path of division of patients to train/test datasets. leave blank if you want to do a new division
+  save_division_path:  #DATA\patients_divisions\train_patients_0.8percent_all.p # (reproduce datasets) for saving the division of patients. only when split_data_path mode is off (building new data sets). leave blank if you don't want to save.
+  test_percent: 0.1 # in case of new division
+  variance: 6  # filter genes by variance, 0 - for none
+  specific_cell_type: # filter cells by cell type
+  patients_type: ALL # ALL/pre/post
+XGBOOST:
+  k_folds: 5 # num of folds for k folds
+  num_round: 10
+  early_stopping_rounds: 10
