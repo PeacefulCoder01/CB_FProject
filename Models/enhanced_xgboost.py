@@ -5,6 +5,7 @@ from sklearn import metrics
 from utilities.general_helpers import *
 import pandas as pd
 import pickle
+import shap
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, roc_auc_score
 
 
@@ -61,7 +62,7 @@ class Enhanced_XGboost:
         self.patient_prediction_threshold = None
         self.cells_presictions_threshold = None
         self.feature_importance = []
-        self.most_important_5 = None
+        self.most_important_features = None
 
     def train(self, rna_seq_dataset, verbose=False):
         """
@@ -100,9 +101,10 @@ class Enhanced_XGboost:
             # Save the feature importance data by 'gain'
             features_importance = bst.get_score(importance_type='gain')
             self.feature_importance.append(features_importance)
-            print("top 5 features are:", dict(Counter(self.feature_importance[idx]).most_common(5)))
+            top_features = dict(Counter(self.feature_importance[idx]).most_common(20))
+            print("top 20 features are:", top_features)
 
-            for k, v in dict(Counter(self.feature_importance[idx]).most_common(5)).items():
+            for k, v in top_features.items():
                 print("The score of '{}' is {}".format(rna_seq_dataset.gene_names[int(k[1:])], features_importance[k]))
 
             # Adds layer (XGBoost) to the model.
@@ -142,6 +144,7 @@ class Enhanced_XGboost:
             xgboost_patients_binary_preds.append(patients_binary_preds)
             xgboost_cells_binary_preds.append(cells_binary_preds)
 
+
         df_groupby_patients.drop(columns=['predictions probabilities'], inplace=True)
         # Calculates avg classifications of all XGBoosts.
         patients_preds_XGBoost_votes = np.sum(np.array(xgboost_patients_binary_preds), axis=0)/self.k_folds
@@ -170,8 +173,36 @@ class Enhanced_XGboost:
             if feature in self.feature_importance[0] and feature in self.feature_importance[1] and feature in self.feature_importance[2] and feature in self.feature_importance[3] and feature in self.feature_importance[4]:
                 features[feature] = float(sum(d[feature] for d in self.feature_importance)) / len(self.feature_importance)
 
-        return dict(Counter(features).most_common(5))
+        return dict(Counter(features).most_common(20))
 
+    def get_shaply_values(self, rna_seq_dataset):
+        data_labels = np.array([p.response_label for p in rna_seq_dataset.cells_information_list])
+        dcells = xgb.DMatrix(rna_seq_dataset.cells, label=data_labels)
+
+        response_indices = [i for i, x in enumerate(data_labels) if x == 1]
+        non_response_indices = [i for i, x in enumerate(data_labels) if x == 0]
+
+        response_patients = rna_seq_dataset.cells[response_indices]
+        non_response_patients = rna_seq_dataset.cells[non_response_indices]
+
+        respons_shaply_values = self.shaply_values_calc(response_patients, np.ones(len(response_indices)), rna_seq_dataset.gene_names)
+        non_respons_shaply_values = self.shaply_values_calc(non_response_patients, np.zeros(len(response_indices)), rna_seq_dataset.gene_names)
+
+        return respons_shaply_values, non_respons_shaply_values
+
+    def shaply_values_calc(self, dcells, data_labels, gene_names):
+        xgboost_shap_values = []
+        xgboost_shap_values_mean = np.zeros(dcells.shape[1])
+        for idx, (bst, best_threshold_cell_probs, best_threshold_patient_probs) in enumerate(self.model_layers):
+            explainer = shap.TreeExplainer(bst)
+            shap_values = explainer.shap_values(dcells, data_labels)
+            shap_values_mean = np.abs(shap_values).mean(axis=0)
+            xgboost_shap_values_mean += shap_values_mean
+        indices = sorted(range(len(xgboost_shap_values_mean)), key=lambda i: xgboost_shap_values_mean[i])[-20:]
+        indices = indices[::-1]
+        for i in indices:
+           xgboost_shap_values.append(gene_names[i])
+        return xgboost_shap_values
 
 
 class hands_on_Enhanced_XGboost:

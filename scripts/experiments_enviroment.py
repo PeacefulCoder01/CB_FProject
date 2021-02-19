@@ -31,6 +31,7 @@ def build_datasets(dataset_config):
     test_percent = dataset_config['test_percent']
     patients_type = dataset_config['patients_type']
     variance = dataset_config['variance']
+    supervised_classification = dataset_config['supervised_classification']
 
     cells, gene_names, patients_information = extract_smart_seq_data_from_pickle(data_path)
     whole_rna_seq_dataset = RNAseq_Dataset(cells, patients_information, gene_names)
@@ -42,6 +43,9 @@ def build_datasets(dataset_config):
     # 1. keeps only genes greater than given value.
     if variance:
         whole_rna_seq_dataset.filter_genes_by_variance(variance)
+
+    if supervised_classification:
+        whole_rna_seq_dataset = whole_rna_seq_dataset.filter_cells_by_supervised_classification(supervised_classification)
 
     # 2. keeps baseline or post patients..
     if patients_type == 'post':
@@ -72,60 +76,71 @@ def main(dataset_config, xgboost_config, experiment_config):
     num_round = xgboost_config['num_round']
     early_stopping_rounds = xgboost_config['early_stopping_rounds']
     k_folds = xgboost_config['k_folds']
+    model_path = xgboost_config['model_path']
 
     # Builds datasets
     train_dataset, test_dataset = build_datasets(dataset_config)
     print(f'Train dataset patients: {train_dataset.get_all_patients_names()}')
     print(f'Test dataset patients: {train_dataset.get_all_patients_names()}')
 
-    # Builds enhanced XGBoost model.
-    model = Enhanced_XGboost(num_round, early_stopping_rounds, k_folds)
+    if model_path:
+        model = pickle.load(open(model_path, "rb"))
+    else:
+        # Builds enhanced XGBoost model.
+        model = Enhanced_XGboost(num_round, early_stopping_rounds, k_folds)
 
-    # Trains.
-    model.train(train_dataset, True)
+        # Trains.
+        model.train(train_dataset, True)
 
 
-    # Inferences on train set.
+    # # Inferences on train set.
+    # print("----------------------------------------------")
+    # print("Train inference")
+    # patients_preds, cells_preds, df_groupby_patients = model.inference(train_dataset)
+    # patients_labels = df_groupby_patients.values.T[0]
+    # cells_labels = np.array([p.response_label for p in train_dataset.cells_information_list])
+    # # print(f'   train set cells predictions AUC: {roc_auc_score(cells_labels, avg_prob_cells_predictions)}')
+    # # print(f'train set patients predictions AUC: {roc_auc_score(patients_labels, patients_predictions)}')
+    # print(df_groupby_patients)
+    # cells_acc = round(accuracy_score(cells_labels, cells_preds), 3)
+    # patients_acc = round(accuracy_score(patients_labels, patients_preds), 3)
+    # print(f'Train cells predictions CM:\n{visualization_confusion_matrix(cells_labels, cells_preds, f" {EXPERIMENT_NAME} inference train set cells, accuracy: {cells_acc}", join(experiment_path, f"CM train cells {cells_acc}"))}')
+    # print(f'Train patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference train set patients, accuracy: {patients_acc}", join(experiment_path, f"CM train patients {patients_acc}"))}')
+    # print(f'Train cells classification accuracy:\n{cells_acc}')
+    # print(f'Train patients classification accuracy:\n{patients_acc}')
+    #
+    #
+    # # Inferences on test set.
+    # print("----------------------------------------------")
+    # print("Test inference")
+    # patients_preds, cells_preds, df_groupby_patients = model.inference(test_dataset)
+    # patients_labels = df_groupby_patients.values.T[0]
+    # cells_labels = np.array([p.response_label for p in test_dataset.cells_information_list])
+    # # print(f'   test set cells predictions AUC: {roc_auc_score(cells_labels, avg_prob_cells_predictions)}')
+    # # print(f'test set patients predictions AUC: {roc_auc_score(patients_labels, patients_predictions)}')
+    # print(df_groupby_patients)
+    # cells_acc = round(accuracy_score(cells_labels, cells_preds), 3)
+    # patients_acc = round(accuracy_score(patients_labels, patients_preds), 3)
+    # print(f'Test cells predictions CM:\n{visualization_confusion_matrix(cells_labels, cells_preds, f" {EXPERIMENT_NAME} inference test set cells, accuracy: {cells_acc}", join(experiment_path, f"CM test cells {cells_acc}"))}')
+    # print(f'Test patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference test set patients, accuracy: {patients_acc}", join(experiment_path, f"CM test patients {patients_acc}"))}')
+    # print(f'Test cells classification accuracy:\n{cells_acc}')
+    # print(f'Test patients classification accuracy:\n{patients_acc}')
+    #
+    #
+    # # Feature importance
+    # print("----------------------------------------------")
+    # print("Feature Importance")
+    # model.most_important_features = model.get_feature_importance()
+    # for k, v in model.most_important_features.items():
+    #     print("The score of '{}' is {}".format(train_dataset.gene_names[int(k[1:])], model.most_important_features[k]))
+    # # print(model.most_important_features)
+
+
+    # Shaply Values
     print("----------------------------------------------")
-    print("Train inference")
-    patients_preds, cells_preds, df_groupby_patients = model.inference(train_dataset)
-    patients_labels = df_groupby_patients.values.T[0]
-    cells_labels = np.array([p.response_label for p in train_dataset.cells_information_list])
-    # print(f'   train set cells predictions AUC: {roc_auc_score(cells_labels, avg_prob_cells_predictions)}')
-    # print(f'train set patients predictions AUC: {roc_auc_score(patients_labels, patients_predictions)}')
-    print(df_groupby_patients)
-    cells_acc = round(accuracy_score(cells_labels, cells_preds), 3)
-    patients_acc = round(accuracy_score(patients_labels, patients_preds), 3)
-    print(f'Train cells predictions CM:\n{visualization_confusion_matrix(cells_labels, cells_preds, f" {EXPERIMENT_NAME} inference train set cells, accuracy: {cells_acc}", join(experiment_path, f"CM train cells {cells_acc}"))}')
-    print(f'Train patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference train set patients, accuracy: {patients_acc}", join(experiment_path, f"CM train patients {patients_acc}"))}')
-    print(f'Train cells classification accuracy:\n{cells_acc}')
-    print(f'Train patients classification accuracy:\n{patients_acc}')
-
-
-    # Inferences on test set.
-    print("----------------------------------------------")
-    print("Test inference")
-    patients_preds, cells_preds, df_groupby_patients = model.inference(test_dataset)
-    patients_labels = df_groupby_patients.values.T[0]
-    cells_labels = np.array([p.response_label for p in test_dataset.cells_information_list])
-    # print(f'   test set cells predictions AUC: {roc_auc_score(cells_labels, avg_prob_cells_predictions)}')
-    # print(f'test set patients predictions AUC: {roc_auc_score(patients_labels, patients_predictions)}')
-    print(df_groupby_patients)
-    cells_acc = round(accuracy_score(cells_labels, cells_preds), 3)
-    patients_acc = round(accuracy_score(patients_labels, patients_preds), 3)
-    print(f'Test cells predictions CM:\n{visualization_confusion_matrix(cells_labels, cells_preds, f" {EXPERIMENT_NAME} inference test set cells, accuracy: {cells_acc}", join(experiment_path, f"CM test cells {cells_acc}"))}')
-    print(f'Test patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference test set patients, accuracy: {patients_acc}", join(experiment_path, f"CM test patients {patients_acc}"))}')
-    print(f'Test cells classification accuracy:\n{cells_acc}')
-    print(f'Test patients classification accuracy:\n{patients_acc}')
-
-
-    # Feature importance
-    print("----------------------------------------------")
-    print("Feature Importance")
-    model.most_important_5 = model.get_feature_importance()
-    for k, v in model.most_important_5.items():
-        print("The score of '{}' is {}".format(train_dataset.gene_names[int(k[1:])], model.most_important_5[k]))
-    print(model.most_important_5)
+    print("Shaply Values")
+    response_shaply_values, non_response_shaply_values = model.get_shaply_values(train_dataset)
+    print("The responders most significant genes are:\n{}\nThe non-responders most significant genes are:\n{}".format(response_shaply_values, non_response_shaply_values))
 
 
     # Save model.
