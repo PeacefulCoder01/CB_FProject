@@ -1,4 +1,7 @@
 import sys
+
+from Models.feature_explorer import Feature_Explorer
+
 sys.path.append(r'/srv01/technion/shitay/Code/classifying_response_to_immunotherapy/')
 sys.path.append(r'/srv01/technion/shitay/Code/classifying_response_to_immunotherapy/cfg')
 sys.path.append(r'/srv01/technion/shitay/Code/classifying_response_to_immunotherapy/Models')
@@ -19,6 +22,7 @@ from utilities.general_helpers import *
 # CONFIG_PATH = r'cfg\xgboost_1_cfg.yaml'
 CONFIG_PATH = r'..\cfg\dummy.yaml'
 # CONFIG_PATH = sys.argv[1] if len(sys.argv)>1 else r'cfg\xgboost_1_cfg.yaml' # for terminal with outer config operation
+K = 20
 
 EXPERIMENT_NAME, EXPERIMENTS_FOLDER, config = load_yml(CONFIG_PATH)
 
@@ -93,55 +97,50 @@ def main(dataset_config, xgboost_config, experiment_config):
         model.train(train_dataset, True)
 
 
-    # # Inferences on train set.
-    # print("----------------------------------------------")
-    # print("Train inference")
-    # patients_preds, cells_preds, df_groupby_patients = model.inference(train_dataset)
-    # patients_labels = df_groupby_patients.values.T[0]
-    # cells_labels = np.array([p.response_label for p in train_dataset.cells_information_list])
-    # # print(f'   train set cells predictions AUC: {roc_auc_score(cells_labels, avg_prob_cells_predictions)}')
-    # # print(f'train set patients predictions AUC: {roc_auc_score(patients_labels, patients_predictions)}')
-    # print(df_groupby_patients)
-    # cells_acc = round(accuracy_score(cells_labels, cells_preds), 3)
-    # patients_acc = round(accuracy_score(patients_labels, patients_preds), 3)
-    # print(f'Train cells predictions CM:\n{visualization_confusion_matrix(cells_labels, cells_preds, f" {EXPERIMENT_NAME} inference train set cells, accuracy: {cells_acc}", join(experiment_path, f"CM train cells {cells_acc}"))}')
-    # print(f'Train patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference train set patients, accuracy: {patients_acc}", join(experiment_path, f"CM train patients {patients_acc}"))}')
-    # print(f'Train cells classification accuracy:\n{cells_acc}')
-    # print(f'Train patients classification accuracy:\n{patients_acc}')
-    #
-    #
-    # # Inferences on test set.
-    # print("----------------------------------------------")
-    # print("Test inference")
-    # patients_preds, cells_preds, df_groupby_patients = model.inference(test_dataset)
-    # patients_labels = df_groupby_patients.values.T[0]
-    # cells_labels = np.array([p.response_label for p in test_dataset.cells_information_list])
-    # # print(f'   test set cells predictions AUC: {roc_auc_score(cells_labels, avg_prob_cells_predictions)}')
-    # # print(f'test set patients predictions AUC: {roc_auc_score(patients_labels, patients_predictions)}')
-    # print(df_groupby_patients)
-    # cells_acc = round(accuracy_score(cells_labels, cells_preds), 3)
-    # patients_acc = round(accuracy_score(patients_labels, patients_preds), 3)
-    # print(f'Test cells predictions CM:\n{visualization_confusion_matrix(cells_labels, cells_preds, f" {EXPERIMENT_NAME} inference test set cells, accuracy: {cells_acc}", join(experiment_path, f"CM test cells {cells_acc}"))}')
-    # print(f'Test patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference test set patients, accuracy: {patients_acc}", join(experiment_path, f"CM test patients {patients_acc}"))}')
-    # print(f'Test cells classification accuracy:\n{cells_acc}')
-    # print(f'Test patients classification accuracy:\n{patients_acc}')
-    #
-    #
-    # # Feature importance
-    # print("----------------------------------------------")
-    # print("Feature Importance")
-    # model.most_important_features = model.get_feature_importance()
-    # for k, v in model.most_important_features.items():
-    #     print("The score of '{}' is {}".format(train_dataset.gene_names[int(k[1:])], model.most_important_features[k]))
-    # # print(model.most_important_features)
+    # Inferences on train set.
+    print("----------------------------------------------")
+    print("Train inference")
+    patients_preds, cells_preds, df_groupby_patients = model.inference(train_dataset)
+    patients_labels = df_groupby_patients.values.T[0]
+    cells_labels = np.array([p.response_label for p in train_dataset.cells_information_list])
+    # print(f'   train set cells predictions AUC: {roc_auc_score(cells_labels, avg_prob_cells_predictions)}')
+    # print(f'train set patients predictions AUC: {roc_auc_score(patients_labels, patients_predictions)}')
+    print(df_groupby_patients)
+    cells_acc = round(accuracy_score(cells_labels, cells_preds), 3)
+    patients_acc = round(accuracy_score(patients_labels, patients_preds), 3)
+    print(f'Train cells predictions CM:\n{visualization_confusion_matrix(cells_labels, cells_preds, f" {EXPERIMENT_NAME} inference train set cells, accuracy: {cells_acc}", join(experiment_path, f"CM train cells {cells_acc}"))}')
+    print(f'Train patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference train set patients, accuracy: {patients_acc}", join(experiment_path, f"CM train patients {patients_acc}"))}')
+    print(f'Train cells classification accuracy:\n{cells_acc}')
+    print(f'Train patients classification accuracy:\n{patients_acc}')
 
 
-    # Shaply Values
+    # Inferences on test set.
+    print("----------------------------------------------")
+    print("Test inference")
+    patients_preds, cells_preds, df_groupby_patients = model.inference(test_dataset)
+    patients_labels = df_groupby_patients.values.T[0]
+    cells_labels = np.array([p.response_label for p in test_dataset.cells_information_list])
+    # print(f'   test set cells predictions AUC: {roc_auc_score(cells_labels, avg_prob_cells_predictions)}')
+    # print(f'test set patients predictions AUC: {roc_auc_score(patients_labels, patients_predictions)}')
+    print(df_groupby_patients)
+    cells_acc = round(accuracy_score(cells_labels, cells_preds), 3)
+    patients_acc = round(accuracy_score(patients_labels, patients_preds), 3)
+    print(f'Test cells predictions CM:\n{visualization_confusion_matrix(cells_labels, cells_preds, f" {EXPERIMENT_NAME} inference test set cells, accuracy: {cells_acc}", join(experiment_path, f"CM test cells {cells_acc}"))}')
+    print(f'Test patients predictions CM:\n{visualization_confusion_matrix(patients_labels, patients_preds, f"{EXPERIMENT_NAME} inference test set patients, accuracy: {patients_acc}", join(experiment_path, f"CM test patients {patients_acc}"))}')
+    print(f'Test cells classification accuracy:\n{cells_acc}')
+    print(f'Test patients classification accuracy:\n{patients_acc}')
+
+    print("----------------------------------------------")
+    print("Feature Importance")
+    explorer = Feature_Explorer(model, K)
+    explorer.k_importance_genes(test_dataset.gene_names)
+    # print(explorer.k_feature_importance)
+
     print("----------------------------------------------")
     print("Shaply Values")
-    response_shaply_values, non_response_shaply_values = model.get_shaply_values(train_dataset)
-    print("The responders most significant genes are:\n{}\nThe non-responders most significant genes are:\n{}".format(response_shaply_values, non_response_shaply_values))
-
+    explorer.get_shaply_values(test_dataset)
+    print("response genes: ", explorer.k_shaply_response_values)
+    print("non-response genes: ", explorer.k_shaply_non_response_values)
 
     # Save model.
     if experiment_config['save_model']:
