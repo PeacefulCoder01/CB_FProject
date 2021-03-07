@@ -24,4 +24,4 @@ XGBOOST:
   k_folds: 5 # num of folds for k folds
   num_round: 10
   early_stopping_rounds: 10
-  model_path: # ..\Experiments\David\Enhanced_XGboost_Model.pkl
+  model_path: # ..\Experiments\exp_78\Enhanced_XGboost_Model.pkl

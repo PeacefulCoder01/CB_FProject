@@ -2,6 +2,7 @@ from collections import Counter
 import shap
 import numpy as np
 import xgboost as xgb
+import pandas as pd
 
 
 class Feature_Explorer:
@@ -10,10 +11,14 @@ class Feature_Explorer:
         self.K = k
         self.features_importance = []
         self.k_feature_importance = None
-        self.k_shaply_response_values = None
-        self.k_shaply_non_response_values = None
 
     def model_features_importance(self):
+        """
+        The model has 5 XGBoost models,
+        The function calculates the 'Feature Importance' of each of them.
+
+        :return: list of lists, in each list, the feature importance of the specific XGBoost model.
+        """
         features_importance = []
         for bst, _, _ in self.model.model_layers:
             feature_importance = bst.get_score(importance_type='gain')
@@ -21,13 +26,16 @@ class Feature_Explorer:
 
         self.features_importance = features_importance
 
-    def get_denominator(self, feature):
-        return (feature in self.features_importance[0]) + (feature in self.features_importance[1]) + (feature in self.features_importance[2]) + (feature in self.features_importance[3]) + (feature in self.features_importance[4])
-
     def get_k_feature_importance(self):
+        """
+        The function calculates the K most important genes across the 5 XGBoost models.
+
+        :return: dictionary with the K most important genes and their score.
+        """
         features = dict.fromkeys(self.model.model_layers[0][0].feature_names, 0)
         for feature_lst in self.features_importance:
             for feature in feature_lst.keys():
+                # for calculating the relative value of the gene's score
                 denominator = 0
                 if feature in self.features_importance[0]:
                     features[feature] += self.features_importance[0][feature]
@@ -48,43 +56,30 @@ class Feature_Explorer:
         return dict(Counter(features).most_common(self.K))
 
     def map_features_to_genes(self, k_features, gene_names):
+        """
+        The XGBoost model names the features in ascending order ('f1', 'f2', etc).
+        The function maps the features to the original names of the K most important genes.
+
+        :param k_features: dictionary of the K most important genes.
+        :param gene_names: list of the genes (in the same order as the features).
+        :return: dictionary of the genes (by their names) and their feature importance score.
+        """
         genes = {}
         for k, v in k_features.items():
+            if int(k[1:]) > len(gene_names):
+                continue
             gene = gene_names[int(k[1:])]
             genes[gene] = v
             print("The score of '{}' is {}".format(gene, k_features[k]))
         self.k_feature_importance = genes
 
     def k_importance_genes(self, gene_names):
+        """
+        The function gets the K most important genes of the Enhanced XGBoost model.
+
+        :param gene_names: list of gene names for reverse mapping the features to genes.
+        :return: dictionary of the genes (by their names) and their feature importance score.
+        """
         self.model_features_importance()
         k_features = self.get_k_feature_importance()
         return self.map_features_to_genes(k_features, gene_names)
-
-    def get_shaply_values(self, data):
-        data_labels = np.array([p.response_label for p in data.cells_information_list])
-        dcells = xgb.DMatrix(data.cells, label=data_labels)
-
-        response_indices = [i for i, x in enumerate(data_labels) if x == 1]
-        non_response_indices = [i for i, x in enumerate(data_labels) if x == 0]
-
-        response_patients = xgb.DMatrix(data.cells[response_indices], label=np.ones(len(response_indices)))
-        non_response_patients = xgb.DMatrix(data.cells[non_response_indices], label=np.zeros(len(non_response_indices)))
-
-        self.k_shaply_response_values = self.shaply_values_calc(response_patients, data.gene_names)
-        self.k_shaply_non_response_values = self.shaply_values_calc(non_response_patients, data.gene_names)
-
-    def shaply_values_calc(self, dcells, gene_names):
-        xgboost_shap_values = []
-        xgboost_shap_values_dict = {}
-        xgboost_shap_values_mean = np.zeros(len(dcells.feature_names))
-        for idx, (bst, best_threshold_cell_probs, best_threshold_patient_probs) in enumerate(self.model.model_layers):
-            explainer = shap.TreeExplainer(bst)
-            shap_values = explainer.shap_values(dcells)
-            shap_values_mean = np.abs(shap_values).mean(axis=0)
-            xgboost_shap_values_mean += shap_values_mean
-        indices = sorted(range(len(xgboost_shap_values_mean)), key=lambda i: xgboost_shap_values_mean[i])[-self.K:]
-        indices = indices[::-1]
-        for i in indices:
-            xgboost_shap_values.append(gene_names[i])
-            xgboost_shap_values_dict[gene_names[i]] = xgboost_shap_values_mean[i]
-        return xgboost_shap_values_dict

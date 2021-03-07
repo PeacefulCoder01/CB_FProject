@@ -6,7 +6,7 @@ sys.path.append(r'/srv01/technion/shitay/Code/classifying_response_to_immunother
 sys.path.append(r'/srv01/technion/shitay/Code/classifying_response_to_immunotherapy/cfg')
 sys.path.append(r'/srv01/technion/shitay/Code/classifying_response_to_immunotherapy/Models')
 from os.path import join
-import os
+import pandas as pd
 print("\n\n\n\n########## EXPERIMENT HAS STARTED ##########\n\n\n")
 from Models.enhanced_xgboost import Enhanced_XGboost
 from DL.data_loading import *
@@ -14,6 +14,7 @@ from utilities.smart_seq_dataset import *
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, roc_auc_score, accuracy_score
 from sklearn import metrics
 from utilities.general_helpers import *
+from xgboost import plot_importance
 
 
 # CONFIG_PATH = r'/srv01/technion/shitay/Code/classifying_response_to_immunotherapy/cfg/server_cfg.yaml'
@@ -134,18 +135,24 @@ def main(dataset_config, xgboost_config, experiment_config):
     print("Feature Importance")
     explorer = Feature_Explorer(model, K)
     explorer.k_importance_genes(test_dataset.gene_names)
-    # print(explorer.k_feature_importance)
+    plot_importance(model.model_layers[0][0])
 
+    """
     print("----------------------------------------------")
     print("Shaply Values")
     explorer.get_shaply_values(test_dataset)
+    data = pd.concat([explorer.k_shaply_response_values, explorer.k_shaply_non_response_values])
+    data.set_axis(['response', 'non-reponse'], inplace=True)
+    data.to_csv(experiment_path + '\\shaply_values.csv', index=False)
+    explorer.k_shaply_response_values.to_csv(experiment_path + '\\shaply_response.csv', index=False)
+    explorer.k_shaply_non_response_values.to_csv(experiment_path + '\\shaply_non_response.csv', index=False)
     print("response genes: ", explorer.k_shaply_response_values)
     print("non-response genes: ", explorer.k_shaply_non_response_values)
 
     # Save model.
     if experiment_config['save_model']:
         model.save_model_in_pkl(os.path.join(experiment_config['experiments_folder'], experiment_config['experiment_name']))
-
+    """
 
 if __name__ == '__main__':
     print(config)

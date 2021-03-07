@@ -5,132 +5,184 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04ab638c-8c4c-4666-828b-95eac555c1b9" name="Default Changelist" comment="adding feature importance interpretation">
-      <change afterPath="$PROJECT_DIR$/Experiments/David1/CM test cells 0.544.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/David1/CM test patients 0.562.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/David1/CM train cells 0.929.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/David1/CM train patients 0.969.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/David1/Enhanced_XGboost_Model.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/David1/config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/David1/prints.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_1/CM test cells 0.605.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_1/CM test patients 0.625.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_1/CM train cells 0.961.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_1/CM train patients 0.969.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_74/CM test cells 0.58.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_74/CM test patients 0.636.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/CM test cells 0.794.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/CM train cells 1.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/CM test cells 0.567.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/CM test patients 0.727.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/CM train cells 0.982.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_81/CM test cells 0.574.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_81/CM train cells 1.0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/CM test cells 0.554.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/CM train cells 0.989.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/CM test cells 0.555.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/CM train cells 0.957.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/feature_explorer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cfg/feature_importance_cfg.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/importance_genes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_108/k_importance_features_exp_108.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_109/k_importance_features_exp_109.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_110/k_importance_features_exp_110.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_111/k_importance_features_exp_111.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_112/k_importance_features_exp_112.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_113/k_importance_features_exp_113.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_18/k_importance_features_exp_18.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_19/k_importance_features_exp_19.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_20/k_importance_features_exp_20.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_21/k_importance_features_exp_21.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_22/k_importance_features_exp_22.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_48/k_importance_features_exp_48.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_49/k_importance_features_exp_49.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_50/k_importance_features_exp_50.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_51/k_importance_features_exp_51.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_52/k_importance_features_exp_52.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_53/k_importance_features_exp_53.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_60/k_importance_features_exp_60.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_61/k_importance_features_exp_61.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_62/k_importance_features_exp_62.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_63/k_importance_features_exp_63.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_64/k_importance_features_exp_64.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_65/k_importance_features_exp_65.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_72/CM test cells 0.736.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_72/CM test patients 0.667.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_72/CM train cells 1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_72/k_importance_features_72.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_73/CM test cells 0.599.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_73/CM test patients 0.833.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_73/CM train cells 0.922.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_73/k_importance_features_exp_73.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_74/CM test cells 0.597.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_74/CM test patients 0.545.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_74/k_importance_features.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_74/k_importance_features_exp_74.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_75/CM test cells 0.616.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_75/CM test patients 0.909.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_75/CM train cells 0.99.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_75/k_importance_features.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_75/k_importance_features_exp_75.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_76/CM test cells 0.626.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_76/CM test patients 0.875.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_76/CM train cells 0.976.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_76/k_importance_features.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_76/k_importance_features_exp_76.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_77/CM test cells 0.591.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_77/CM test patients 0.75.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_77/k_importance_features_exp_77.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/CM test cells 0.748.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/CM test cells 0.756.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/CM train cells 0.985.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/CM train cells 0.986.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/k_importance_features_78.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/shaply_non_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/shaply_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_78/shaply_values.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_79/CM test cells 0.656.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_79/CM test cells 0.687.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_79/CM test patients 1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_79/k_importance_features_exp_79.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_79/shaply_non_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_79/shaply_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_79/shaply_values_79.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/CM test cells 0.585.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/CM test cells 0.586.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/CM test patients 0.818.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/CM train cells 1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/k_importance_features_exp_80.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/shaply_non_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/shaply_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_80/shaply_values_80.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_81/CM test cells 0.53.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_81/CM test cells 0.542.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_81/CM test patients 0.818.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_81/CM train cells 0.937.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_81/CM train cells 0.959.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_81/k_importance_features_exp_81.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/CM test cells 0.548.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/CM test cells 0.551.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/CM train cells 0.98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/CM train cells 0.99.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/k_importance_features_exp_82.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/shaply_non_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/shaply_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_82/shaply_values_82.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/CM test cells 0.58.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/CM test cells 0.582.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/CM test patients 0.625.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/CM train cells 1.0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/k_importance_features_exp_83.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/shaply_non_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/shaply_response.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experiments/exp_83/shaply_values_83.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Untitled.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/David/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/David/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/David/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/David/prints.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David/prints.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David1/CM test cells 0.544.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David1/CM test patients 0.562.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David1/CM train cells 0.929.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David1/CM train patients 0.969.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David1/Enhanced_XGboost_Model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David1/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/David1/prints.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/dummy3/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/dummy3/prints.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_0/CM train cells 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_0/CM train cells 1.0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_0/CM train patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_0/CM train patients 1.0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_0/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_0/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_0/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_0/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_0/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_0/prints.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_1/CM test cells 0.605.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_1/CM test patients 0.625.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_1/CM train cells 0.961.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_1/CM train patients 0.969.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_1/CM train patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_1/CM train patients 1.0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_1/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_1/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_1/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_1/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_1/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_1/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_72/CM test cells 0.736.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_72/CM test patients 0.667.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_72/CM train cells 1.0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_72/CM train patients 1.0.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_72/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_72/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_72/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_72/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_72/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_72/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_73/CM test cells 0.599.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_73/CM test patients 0.833.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_73/CM train cells 0.922.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_73/CM train patients 1.0.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_73/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_73/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_73/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_73/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_73/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_73/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_74/CM test cells 0.597.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_74/CM test patients 0.545.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_74/CM test cells 0.58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_74/CM test patients 0.636.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_74/CM train cells 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_74/CM train cells 1.0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_74/CM train patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_74/CM train patients 1.0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_74/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_74/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_74/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_74/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_74/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_74/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_75/CM test cells 0.616.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_75/CM test patients 0.909.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_75/CM train cells 0.99.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_75/CM train patients 1.0.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_75/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_75/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_75/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_75/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_75/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_75/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_76/CM test cells 0.626.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_76/CM test patients 0.875.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_76/CM train cells 0.976.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_76/CM train patients 1.0.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_76/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_76/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_76/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_76/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_76/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_76/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_77/CM test cells 0.591.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_77/CM test patients 0.75.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_77/CM train cells 1.0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_77/CM train patients 1.0.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_77/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_77/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_77/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_77/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_77/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_77/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_78/CM test cells 0.748.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_78/CM test patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_78/CM test patients 1.0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_78/CM train cells 0.986.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_78/CM train patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_78/CM train patients 1.0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_78/CM test cells 0.794.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_78/CM train cells 1.0.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_78/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_78/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_78/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_78/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_78/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_78/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_79/CM test cells 0.656.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_79/CM test patients 0.833.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_79/CM train cells 1.0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_79/CM train patients 1.0.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_79/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_79/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_79/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_79/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_79/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_79/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_80/CM test cells 0.586.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_80/CM test patients 0.818.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_80/CM train cells 1.0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_80/CM train patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_80/CM train patients 1.0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_80/CM test cells 0.567.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_80/CM test patients 0.727.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_80/CM test patients 0.727.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_80/CM train cells 0.982.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_80/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_80/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_80/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_80/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_80/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_80/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_81/CM test cells 0.53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_81/CM test patients 0.727.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_81/CM test patients 0.727.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_81/CM train cells 0.937.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_81/CM train patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_81/CM train patients 1.0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_81/CM test cells 0.574.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_81/CM test cells 0.574.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_81/CM train cells 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_81/CM train cells 1.0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_81/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_81/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_81/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_81/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_81/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_81/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_82/CM test cells 0.551.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_82/CM test patients 0.938.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_82/CM test patients 0.938.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_82/CM train cells 0.98.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_82/CM train patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_82/CM train patients 1.0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_82/CM test cells 0.554.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_82/CM train cells 0.989.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_82/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_82/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_82/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_82/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_82/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_82/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_83/CM test cells 0.582.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_83/CM test cells 0.555.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_83/CM test patients 0.688.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_83/CM test patients 0.688.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_83/CM train cells 1.0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experiments/exp_83/CM train patients 1.0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_83/CM train patients 1.0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experiments/exp_83/CM train cells 0.957.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_83/Enhanced_XGboost_Model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_83/Enhanced_XGboost_Model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_83/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_83/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Experiments/exp_83/prints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Experiments/exp_83/prints.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/enhanced_xgboost.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/enhanced_xgboost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/feature_explorer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/feature_explorer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cfg/dummy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/dummy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg/feature_importance_cfg.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cfg/feature_importance_cfg.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/experiments_enviroment.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/experiments_enviroment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/importance_genes.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/importance_genes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +292,7 @@
       <recent name="D:\Technion studies\courses\Cancer Bioinformatics - 066529\CB_FProject\utilities" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.experiments_enviroment">
+  <component name="RunManager" selected="Python.importance_genes">
     <configuration name="experiments_enviroment" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CB_FProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -285,8 +337,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.experiments_enviroment" />
         <item itemvalue="Python.importance_genes" />
+        <item itemvalue="Python.experiments_enviroment" />
       </list>
     </recent_temporary>
   </component>
@@ -315,7 +367,13 @@
       <option name="presentableId" value="LOCAL‎00002" />
       <updated>1613740463459</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL‎00003" summary="adding feature importance interpretation">
+      <created>1614004174346</created>
+      <option name="number" value="LOCAL‎00003" />
+      <option name="presentableId" value="LOCAL‎00003" />
+      <updated>1614004174346</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -374,13 +432,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scripts/experiments_enviroment.py</url>
-          <line>96</line>
-          <option name="timeStamp" value="145" />
+          <line>142</line>
+          <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scripts/experiments_enviroment.py</url>
-          <line>140</line>
-          <option name="timeStamp" value="154" />
+          <line>136</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/experiments_enviroment.py</url>
+          <line>103</line>
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/experiments_enviroment.py</url>
+          <line>122</line>
+          <option name="timeStamp" value="184" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
